@@ -26,4 +26,12 @@ public class UserTest {
         String actualResult = user.getLogin() + " " + user.getEmail();
         Assertions.assertEquals("Kat Kat123@mail.ru", actualResult);
     }
+
+    @Test
+    @DisplayName("When the same username and email")
+    public void sameEmailTest() {
+        String login = "Kat";
+        String email = "Kat123@mail.ru";
+        Assertions.assertThrows(RuntimeException.class,()-> new User(login,email));
+    }
 }
